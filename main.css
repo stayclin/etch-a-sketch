@@ -1,0 +1,12 @@
+#sketchpad {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+.square{
+    //width:20px;
+    //height:20px;
+    float:left;
+    //background-color:black;
+    //border: 1px solid black;
+}
