@@ -15,7 +15,7 @@ $(document).ready(function(){
 		var numSquares = padSize;
 		var squareW = (padWidth / numSquares) + "px";
 		var squareH = (padHeight / numSquares) + "px";
-		//alert(squareH);
+		//console.log(squareH);
 		var totalSquares = numSquares*numSquares;
 		for(var i=0; i<totalSquares; i++){
 			$('<div class="square">').css('background-color', 'white').appendTo($sketchpad);
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		$squares = $(".square");
 		$($squares).css("width", squareW);
 		$($squares).css("height", squareH);
-		//alert("squareH " + squareH);
+		//console.log("squareH " + squareH);
 		console.log("squareSize " + ($squares).height());
 
 		//change color when hover over square
@@ -33,6 +33,7 @@ $(document).ready(function(){
 
 	}
 	createPad(16);
+
 
 	//change color when hover over square
 	function squareHover(){
@@ -66,7 +67,7 @@ $(document).ready(function(){
 		//else random color hover
 		else if(mode == "random"){
         	//alert('random color hover');
-        	$($squares).hover(function(){
+        	$($squares).mouseover(function(){
       			$(this).css('background-color', getRandomColor());
    			});
 		}
@@ -77,10 +78,10 @@ $(document).ready(function(){
     //button functions
     //clears board
     $("#reset").click(function(){
-        alert('reset button clicked');
+        //alert('reset button clicked');
         $sketchpad.empty();
         var newSize = prompt("Please enter a new size:");
-        //alert(newSize);
+        //console.log(newSize);
         createPad(newSize);
     });
 
@@ -89,16 +90,16 @@ $(document).ready(function(){
         $sketchpad.empty();
         mode = "normal";
         var newSize = prompt("Please enter a new size:");
-        //alert(newSize);
+        //console.log(newSize);
         createPad(newSize);
     });
-    
+
     $("#random").click(function(){
         //alert('random button clicked');
         $sketchpad.empty();
         mode = "random";
         var newSize = prompt("Please enter a new size:");
-        //alert(newSize);
+        //console.log(newSize);
         createPad(newSize);
         //getRandomColor();
     });
