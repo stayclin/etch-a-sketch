@@ -12,11 +12,16 @@ $(document).ready(function(){
 		padHeight = $sketchpad.height();
 		console.log(padWidth + " " +padHeight);
 
-		var numSquares = padSize;
-		var squareW = (padWidth / numSquares) + "px";
-		var squareH = (padHeight / numSquares) + "px";
+		//var numSquares = padSize;
+		var squareH = padSize + "px";
+		var squareW = padSize + "px";
+		//var squareW = (padWidth / numSquares) + "px";
+		//var squareH = (padHeight / numSquares) + "px";
 		//console.log(squareH);
-		var totalSquares = numSquares*numSquares;
+		//var totalSquares = numSquares*numSquares;
+		var totalSquares = Math.ceil(padWidth/padSize) * Math.ceil(padHeight/padSize);
+		////need to change to how many squares for side for user????
+		////still missing some. need to fix calculation of square sizes
 		for(var i=0; i<totalSquares; i++){
 			$('<div class="square">').css('background-color', 'white').appendTo($sketchpad);
 			//borders take up extra space...
@@ -32,7 +37,7 @@ $(document).ready(function(){
 		squareHover();
 
 	}
-	createPad(16);
+	createPad(20);
 
 
 	//change color when hover over square
@@ -48,7 +53,7 @@ $(document).ready(function(){
 
 				//console.log($(this).css('background-color'));
 				if($(this).css('background-color') === 'rgb(255, 255, 255)'){
-					console.log('testtt');
+					//console.log('testtt');
 	      			//$(this).css('background-color', 'gray');
 	      			$(this).css('background-color', 'black');
 	      			$(this).css('opacity', .25);
@@ -80,7 +85,7 @@ $(document).ready(function(){
     $("#reset").click(function(){
         //alert('reset button clicked');
         $sketchpad.empty();
-        var newSize = prompt("Please enter a new size:");
+        var newSize = prompt("Please enter a new square pixel size:");
         //console.log(newSize);
         createPad(newSize);
     });
@@ -89,7 +94,7 @@ $(document).ready(function(){
         //alert('normal button clicked');
         $sketchpad.empty();
         mode = "normal";
-        var newSize = prompt("Please enter a new size:");
+        var newSize = prompt("Please enter a new square pixel size:");
         //console.log(newSize);
         createPad(newSize);
     });
@@ -98,7 +103,7 @@ $(document).ready(function(){
         //alert('random button clicked');
         $sketchpad.empty();
         mode = "random";
-        var newSize = prompt("Please enter a new size:");
+        var newSize = prompt("Please enter a new square pixel size:");
         //console.log(newSize);
         createPad(newSize);
         //getRandomColor();
